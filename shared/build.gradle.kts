@@ -76,7 +76,6 @@ kotlin {
 
             //unit test
             implementation(libs.kotlin.test)
-            implementation(libs.mockk)
             implementation(libs.kotlinx.coroutines.test)
         }
         commonTest.dependencies {
