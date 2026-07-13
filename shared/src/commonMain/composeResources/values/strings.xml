@@ -24,4 +24,8 @@
 
     <string name="rating">Rating</string>
 
+    <string name="description">Description</string>
+
+    <string name="product_details">Product Details</string>
+
 </resources>

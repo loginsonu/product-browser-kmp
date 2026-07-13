@@ -8,6 +8,8 @@ import com.sony.productbrowser.domain.repository.ProductRepository
 import com.sony.productbrowser.domain.usecase.GetProductDetailUseCase
 import com.sony.productbrowser.domain.usecase.GetProductsUseCase
 import com.sony.productbrowser.domain.usecase.SearchProductsUseCase
+import com.sony.productbrowser.presentation.productdetail.ProductDetailViewModel
+import com.sony.productbrowser.presentation.productlist.ProductListViewModel
 
 object AppContainer {
 
@@ -27,8 +29,16 @@ object AppContainer {
         GetProductsUseCase(productRepository)
     }
 
+    fun provideProductListViewModel(): ProductListViewModel {
+        return ProductListViewModel(getProductsUseCase)
+    }
+
     val getProductDetailUseCase by lazy {
         GetProductDetailUseCase(productRepository)
+    }
+
+    fun provideProductDetailViewModel(productId:Int): ProductDetailViewModel {
+        return ProductDetailViewModel(productId,getProductDetailUseCase)
     }
 
     val searchProductsUseCase by lazy {

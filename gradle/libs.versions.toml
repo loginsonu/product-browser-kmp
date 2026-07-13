@@ -18,6 +18,7 @@ ktor = "3.2.3"
 kotlinxSerialization = "1.9.0"
 navigation = "2.9.2"
 coil = "3.3.0"
+composeMaterialIcons = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -64,6 +65,8 @@ navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-co
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 
+#for icons
+compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "composeMaterialIcons" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }

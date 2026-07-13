@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 @Composable
 fun ProductListRoute(
     viewModel: ProductListViewModel,
+    onRetry: () -> Unit,
     onProductClick: (Int) -> Unit
 ) {
 
@@ -14,7 +15,8 @@ fun ProductListRoute(
 
     ProductListScreen(
         uiState = uiState,
-        onRetry = viewModel::fetchProducts,
+        onRetry = onRetry,
         onProductClick = onProductClick
     )
+
 }

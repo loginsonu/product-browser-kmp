@@ -12,7 +12,7 @@ class HttpClientFactory {
 
     private val client by lazy {
         HttpClient {
-
+            expectSuccess = true
             install(ContentNegotiation) {
                 json(
                     Json {
@@ -24,7 +24,7 @@ class HttpClientFactory {
             }
 
             install(Logging) {
-                level = LogLevel.BODY
+                level = LogLevel.INFO
             }
 
             install(DefaultRequest) {
