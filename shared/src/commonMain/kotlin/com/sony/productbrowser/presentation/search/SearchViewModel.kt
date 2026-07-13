@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sony.productbrowser.core.result.AppResult
 import com.sony.productbrowser.domain.usecase.SearchProductsUseCase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
@@ -66,7 +68,7 @@ class SearchViewModel(
 
     fun searchProducts(query: String = uiState.value.query) {
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
 
             _uiState.update {
                 it.copy(

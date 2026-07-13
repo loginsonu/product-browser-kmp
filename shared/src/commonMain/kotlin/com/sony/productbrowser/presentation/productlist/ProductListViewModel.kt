@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sony.productbrowser.core.result.AppResult
 import com.sony.productbrowser.domain.usecase.GetProductsUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,7 +25,7 @@ class ProductListViewModel(
     }
 
     fun fetchProducts() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
 
             // Show loading
             _uiState.update {

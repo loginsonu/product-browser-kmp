@@ -40,6 +40,9 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.ktor.client.okhttp)
         }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
@@ -70,6 +73,11 @@ kotlin {
 
             //icons
             implementation(libs.compose.material.icons.extended)
+
+            //unit test
+            implementation(libs.kotlin.test)
+            implementation(libs.mockk)
+            implementation(libs.kotlinx.coroutines.test)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
