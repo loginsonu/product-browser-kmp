@@ -12,4 +12,6 @@ sealed interface Screen {
     data class ProductDetail(
         val productId: Int
     ) : Screen
+    @Serializable
+    data object Search : Screen
 }

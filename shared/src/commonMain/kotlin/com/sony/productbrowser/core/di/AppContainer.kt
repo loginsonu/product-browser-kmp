@@ -10,6 +10,7 @@ import com.sony.productbrowser.domain.usecase.GetProductsUseCase
 import com.sony.productbrowser.domain.usecase.SearchProductsUseCase
 import com.sony.productbrowser.presentation.productdetail.ProductDetailViewModel
 import com.sony.productbrowser.presentation.productlist.ProductListViewModel
+import com.sony.productbrowser.presentation.search.SearchViewModel
 
 object AppContainer {
 
@@ -43,5 +44,13 @@ object AppContainer {
 
     val searchProductsUseCase by lazy {
         SearchProductsUseCase(productRepository)
+    }
+
+    fun provideSearchViewModel(): SearchViewModel {
+
+        return SearchViewModel(
+            searchProductsUseCase
+        )
+
     }
 }

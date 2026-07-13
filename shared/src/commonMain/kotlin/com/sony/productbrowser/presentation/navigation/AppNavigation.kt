@@ -11,6 +11,7 @@ import com.sony.productbrowser.presentation.productdetail.ProductDetailRoute
 import com.sony.productbrowser.presentation.productdetail.ProductDetailScreen
 import com.sony.productbrowser.presentation.productlist.ProductListRoute
 import com.sony.productbrowser.presentation.productlist.ProductListViewModel
+import com.sony.productbrowser.presentation.search.SearchRoute
 
 @Composable
 fun AppNavigation(
@@ -27,8 +28,6 @@ fun AppNavigation(
 
         composable<Screen.ProductList> {
 
-
-
             ProductListRoute(
                 viewModel = productListViewModel,
                 onRetry = productListViewModel::fetchProducts,
@@ -38,6 +37,9 @@ fun AppNavigation(
                         Screen.ProductDetail(productId)
                     )
 
+                },
+                onSearchClicked = {
+                    navController.navigate(Screen.Search)
                 }
             )
 
@@ -61,6 +63,30 @@ fun AppNavigation(
                 }
             )
 
+        }
+
+        // Search
+        composable<Screen.Search> {
+
+            val viewModel = remember {
+                appContainer.provideSearchViewModel()
+            }
+
+            SearchRoute(
+                viewModel = viewModel,
+                onBackClick = {
+                    navController.navigateUp()
+                },
+                onProductClick = { productId ->
+                    navController.navigate(
+                        Screen.ProductDetail(productId)
+                    ){
+                        popUpTo(Screen.Search) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
 
     }

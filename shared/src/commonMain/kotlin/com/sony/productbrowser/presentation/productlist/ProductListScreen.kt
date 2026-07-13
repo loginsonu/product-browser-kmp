@@ -37,7 +37,8 @@ import productbrowser.shared.generated.resources.products
 fun ProductListScreen(
     uiState: ProductListUiState,
     onRetry: () -> Unit,
-    onProductClick: (Int) -> Unit
+    onProductClick: (Int) -> Unit,
+    onSearchClicked:()->Unit = {}
 ) {
 
     Scaffold(
@@ -50,7 +51,7 @@ fun ProductListScreen(
                 },
                 actions = {
                     IconButton(
-                        onClick = { /* Navigate to Search */ }
+                        onClick = onSearchClicked
                     ) {
                         Icon(
                             imageVector = Icons.Default.Search,
