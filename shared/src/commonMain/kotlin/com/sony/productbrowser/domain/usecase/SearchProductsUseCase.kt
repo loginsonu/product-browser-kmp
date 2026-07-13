@@ -6,7 +6,7 @@ import com.sony.productbrowser.domain.repository.ProductRepository
 class SearchProductsUseCase(
     private val repository: ProductRepository
 ) {
-    suspend operator fun invoke(query: String): List<Product> {
-        return repository.searchProducts(query)
-    }
+    suspend operator fun invoke(query: String) =
+        repository.searchProducts(query)
+
 }

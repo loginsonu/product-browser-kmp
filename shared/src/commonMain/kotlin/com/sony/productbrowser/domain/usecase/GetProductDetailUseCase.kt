@@ -6,7 +6,7 @@ import com.sony.productbrowser.domain.repository.ProductRepository
 class GetProductDetailUseCase(
     private val repository: ProductRepository
 ) {
-    suspend operator fun invoke(productId: Int): Product {
-        return repository.getProduct(productId)
-    }
+    suspend operator fun invoke(productId: Int) =
+         repository.getProduct(productId)
+
 }
