@@ -208,6 +208,51 @@ The shared module has been successfully compiled for the iOS Simulator target (`
 
 ---
 
+# Platform Verification
+
+The application has been successfully verified on both Android and iOS platforms.
+
+### Android
+
+- ✅ Application tested locally on Android.
+- ✅ All core features verified:
+  - Product Listing
+  - Product Details
+  - API-based Search
+
+### iOS
+
+The iOS application has been validated through GitHub Actions CI.
+
+The workflow performs the following automated steps:
+
+- Builds the iOS application using Xcode.
+- Boots an iPhone Simulator.
+- Installs the generated application.
+- Launches the application successfully.
+- Records a demo video of the running application.
+- Uploads the demo video as a CI artifact.
+- Executes Kotlin Multiplatform shared module tests on the iOS Simulator.
+
+This verifies that the shared Compose Multiplatform application successfully builds and runs on iOS.
+
+---
+
+# Continuous Integration
+
+The project includes a GitHub Actions workflow for automated iOS verification.
+
+The workflow automatically:
+
+- Builds the iOS application.
+- Runs Kotlin Multiplatform shared module tests.
+- Verifies successful application launch on the iOS Simulator.
+- Generates and uploads a demo video as a build artifact.
+
+This helps ensure that the application remains buildable and functional across supported platforms.
+
+---
+
 # Unit Testing
 
 The project includes unit testing for the business layer.
